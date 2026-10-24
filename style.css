@@ -1,0 +1,16 @@
+* {
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+}
+
+main {
+    align-items: center;
+    text-align: center;
+    position: static;
+}
+
+form {
+    align-items: center;
+}
