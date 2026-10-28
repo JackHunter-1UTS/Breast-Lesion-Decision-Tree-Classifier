@@ -13,7 +13,6 @@ class Formatter:
       else:
         self.replacements[i].append(data[i])
         data[i] = self.replacements[i].index(data[i])
-    print(data)
     data = iter(data)
     map = {
         "Age":[age], "Tissue_composition":[next(data)], "Signs":[next(data)], "Symptoms":[next(data)], "Shape":[next(data)], "Margin":[next(data)], "Echogenicity":[next(data)], "Posterior_features":[next(data)], "Halo":[next(data)], "Calcifications":[next(data)], "Skin_thickening":[next(data)]

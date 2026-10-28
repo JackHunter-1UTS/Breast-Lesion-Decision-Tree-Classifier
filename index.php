@@ -24,11 +24,33 @@
     <?PHP 
       if (array_key_exists('compute', $_POST)) {
         // Change path to your system
-        $output = shell_exec("C:\Users\\nesro\Documents\GitHub\Breast-Lesion-Decision-Tree-Classifier\.venv\Scripts\python breastLesionClassifier.py {$_POST['age']} {$_POST['tissue_composition']} {$_POST['signs']} {$_POST['symptoms']} {$_POST['shape']} {$_POST['margin']} {$_POST['echogenicity']} {$_POST['posterior_features']} {$_POST['halo']} {$_POST['calcifications']} {$_POST['skin_thickening']}");
-        if ($output[-2] == 0) {
+        $inputs = [
+          $_POST['age'],
+          $_POST['tissue_composition'],
+          $_POST['signs'],
+          $_POST['symptoms'],
+          $_POST['shape'],
+          $_POST['margin'],
+          $_POST['echogenicity'],
+          $_POST['posterior_features'],
+          $_POST['halo'],
+          $_POST['calcifications'],
+          $_POST['skin_thickening']
+        ];
+
+        // Keep spaces within each input
+        $args = implode(' ', array_map('escapeshellarg', $inputs));
+
+        // Keep your existing Python executable path here
+        $python = 'C:\Users\nesro\Documents\GitHub\Breast-Lesion-Decision-Tree-Classifier\.venv\Scripts\python.exe';
+
+        $output = shell_exec(
+          escapeshellarg($python) . ' breastlesionclassifier.py ' . $args
+        );
+        if ($output == 0) {
           print "<p style='font-size: 15pt'>Classification: benign</p>";
         } else {
-          print "Classification: malignant";
+          print "Classification: malignant ";
         }
       }      
     ?>

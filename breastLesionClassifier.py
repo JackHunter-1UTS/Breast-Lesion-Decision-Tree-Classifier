@@ -2,6 +2,7 @@ import pickle
 import pandas as pd
 import sys
 
+
 with open('decisionTree.pkl', 'rb') as file:
     dt = pickle.load(file)
 
