@@ -41,8 +41,8 @@
         // Keep spaces within each input
         $args = implode(' ', array_map('escapeshellarg', $inputs));
 
-        // Keep your existing Python executable path here
-        $python = 'C:\Users\nesro\Documents\GitHub\Breast-Lesion-Decision-Tree-Classifier\.venv\Scripts\python.exe';
+        // Change to your path
+        $python = 'C:\Users\YOUR NAME\Documents\GitHub\Breast-Lesion-Decision-Tree-Classifier\.venv\Scripts\python.exe';
 
         $output = shell_exec(
           escapeshellarg($python) . ' breastlesionclassifier.py ' . $args
